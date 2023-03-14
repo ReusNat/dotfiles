@@ -11,4 +11,6 @@ set ignorecase
 
 colorscheme desert
 
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
 set t_u7=
