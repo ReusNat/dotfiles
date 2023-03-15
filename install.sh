@@ -4,12 +4,14 @@ link() {
     rm -f ~/.vimrc ~/.inputrc
     ln -sf .dotfiles/.vimrc ~/.vimrc
     ln -sf .dotfiles/.inputrc ~/.inputrc
+    ln -sf ~/.dotfiles/.profile ~/.profile
 }
 
 unlink() {
     rm -f ~/.vimrc ~/.inputrc
     cp ~/.dotfiles/.vimrc ~/.vimrc
     cp ~/.dotfiles/.inputrc ~/.inputrc
+    cp ~/.dotfiles/.profile ~/.profile
 }
 
 # ./install.sh link

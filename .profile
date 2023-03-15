@@ -42,8 +42,8 @@ alias ll="ls -al"
 alias sl="sl -aeF"
 alias lt="ls -latr"
 
-open.sh
-bff.sh
+#open.sh
+#bff.sh
 # export PATH=$HOME/bin:$PATH see line 20
 
 C () {
