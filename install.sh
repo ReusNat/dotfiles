@@ -4,14 +4,22 @@ link() {
     rm -f ~/.vimrc ~/.inputrc
     ln -sf .dotfiles/.vimrc ~/.vimrc
     ln -sf .dotfiles/.inputrc ~/.inputrc
-    ln -sf ~/.dotfiles/.profile ~/.profile
+    if [ -f "$HOME/.bash_profile" ] ; then
+        ln -sf ~/.dotfiles/.profile ~/.bash_profile
+    else 
+        ln -sf ~/.dotfiles/.profile ~/.profile
+    fi
 }
 
 unlink() {
     rm -f ~/.vimrc ~/.inputrc
     cp ~/.dotfiles/.vimrc ~/.vimrc
     cp ~/.dotfiles/.inputrc ~/.inputrc
-    cp ~/.dotfiles/.profile ~/.profile
+    if [ -f "$HOME/.bash_profile" ] ; then
+        cp ~/.dotfiles/.profile ~/.bash_profile
+    else 
+        cp ~/.dotfiles/.profile ~/.profile
+    fi
 }
 
 # ./install.sh link
