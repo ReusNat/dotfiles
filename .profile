@@ -1,11 +1,3 @@
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -24,18 +16,47 @@ fi
 
 alias enrun='source env/bin/activate'
 
-alias dev="cd /class/devops"
-
-alias c="clear && ls"
+alias c="clear"
 alias cl="clear && ls"
 alias ll="ls -al"
 alias sl="sl -aeF"
 alias lt="ls -latr"
+alias vi="vim"
 
-C () {
+#open.sh
+#bff.sh
+# export PATH=$HOME/bin:$PATH see line 20
+
+cpp () {
     prefix=$1
-    g++ $prefix.cpp -o $prefix
+    g++ $prefix.cpp -o $prefix -fmax-errors=1
     if [[ $? -eq 0 ]] ; then
 	    ./$prefix
     fi
 }
+
+C () {
+    prefix=$1
+    gcc $prefix.c -o $prefix -fmax-errors=1
+    if [[ $? -eq 0 ]] ; then
+	    ./$prefix
+    fi
+}
+
+r () {
+    prefix=$1
+    rustc $prefix.rs
+    if [[ $? -eq 0 ]] ; then
+	    ./$prefix
+    fi
+}
+
+
+#if [ -f "$HOME/.links/bad-links.txt" ] ; then
+#	cat $HOME/.links/bad-links.txt
+#fi
+
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
