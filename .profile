@@ -29,6 +29,7 @@ alias vi="vim"
 
 cpp () {
     prefix=$1
+    clear
     g++ $prefix.cpp -o $prefix -fmax-errors=1
     if [[ $? -eq 0 ]] ; then
 	    ./$prefix
@@ -37,6 +38,7 @@ cpp () {
 
 C () {
     prefix=$1
+    clear
     gcc $prefix.c -o $prefix -fmax-errors=1
     if [[ $? -eq 0 ]] ; then
 	    ./$prefix
@@ -45,6 +47,7 @@ C () {
 
 r () {
     prefix=$1
+    clear
     rustc $prefix.rs
     if [[ $? -eq 0 ]] ; then
 	    ./$prefix
