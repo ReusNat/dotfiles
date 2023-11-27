@@ -12,5 +12,10 @@ set ignorecase
 colorscheme desert
 
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+autocmd FileType html source ~/.vimrc.html
 
+colorscheme desert
+
+" This is a weird fix for WSL so Vim doesn't open in --REPLACE-- mode
+" Not sure exactly what this does, but solves the issue
 set t_u7=
