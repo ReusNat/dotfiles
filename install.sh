@@ -9,6 +9,13 @@ link() {
     else 
         ln -sf ~/.dotfiles/.profile ~/.profile
     fi
+    ln vimrc.html ~/.vimrc.html
+    if [ -e ~/.vim ] ; then
+        ln html.vim ~/.vim/indent/html.vim
+    else
+        mkdir ~/.vim ~/.vim/indent
+        ln html.vim ~/.vim/indent/html.vim
+    fi
 }
 
 unlink() {
@@ -19,6 +26,14 @@ unlink() {
         cp ~/.dotfiles/.profile ~/.bash_profile
     else 
         cp ~/.dotfiles/.profile ~/.profile
+    fi
+    
+    cp vimrc.html ~/.vimrc.html
+    if [ -e ~/.vim ] ; then
+        cp html.vim ~/.vim/indent/html.vim
+    else
+        mkdir ~/.vim ~/.vim/indent
+        cp html.vim ~/.vim/indent/html.vim
     fi
 }
 
