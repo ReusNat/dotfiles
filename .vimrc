@@ -13,6 +13,7 @@ colorscheme desert
 
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 autocmd FileType html source ~/.vimrc.html
+autocmd FileType txt set tabstop=2 smarttab
 
 colorscheme desert
 
