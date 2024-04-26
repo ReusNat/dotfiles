@@ -1,3 +1,10 @@
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -15,17 +22,14 @@ if [ -d "/usr/local/cuda-10.0/bin/" ]; then
 fi
 
 alias enrun='source env/bin/activate'
-
 alias c="clear"
 alias cl="clear && ls"
-alias ll="ls -al"
+alias ll="ls -Al"
 alias sl="sl -aeF"
 alias lt="ls -latr"
 alias vi="vim"
-
-#open.sh
-#bff.sh
-# export PATH=$HOME/bin:$PATH see line 20
+alias enrun="source env/bin/activate"
+alias env="python3 -m venv env/"
 
 cpp () {
     prefix=$1
@@ -54,12 +58,5 @@ r () {
     fi
 }
 
-
-#if [ -f "$HOME/.links/bad-links.txt" ] ; then
-#	cat $HOME/.links/bad-links.txt
-#fi
-
-# ~/.bash_profile
-#
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

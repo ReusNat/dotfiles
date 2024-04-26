@@ -1,4 +1,20 @@
 #!/bin/bash
+files={.inputrc .vimrc}
+scripts={ghlink gitclone makeflask makehtml prettyzip}
+
+link_scripts() {
+    for script in ${scripts[@]}; do
+        ln -sf .dotfiles/$script ~/bin/$script
+        chmod 700 ~/.dotfiles/$script
+    done
+}
+
+unlink_scripts() {
+    for script in ${scripts[@]}; do
+        cp -sf .dotfiles/$script ~/bin/$script
+        chmod 700 ~/bin/$script
+    done
+}
 
 link() {
     rm -f ~/.vimrc ~/.inputrc
@@ -16,6 +32,7 @@ link() {
         mkdir ~/.vim ~/.vim/indent
         ln html.vim ~/.vim/indent/html.vim
     fi
+    link_scripts
 }
 
 unlink() {
@@ -35,6 +52,7 @@ unlink() {
         mkdir ~/.vim ~/.vim/indent
         cp html.vim ~/.vim/indent/html.vim
     fi
+    link_scripts
 }
 
 # ./install.sh link

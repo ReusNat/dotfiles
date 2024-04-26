@@ -1,0 +1,2 @@
+#!/bin/bash
+zip -r $1.zip $1 -x \*/env/\* \*/venv/\* \*/__pycache__/\* \*/.DS_Store\* \*/node_modules/\*

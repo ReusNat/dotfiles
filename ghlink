@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <GH-username>/<GH-project>"
+  exit 1
+fi
+
+git init -b main
+git remote add origin https://github.com/$1.git
+git pull
+#git branch --set-upstream-to=origin/main main
+git pull origin main
+git add -A
+git commit -m "True initial commit"
+git push origin main
+
+echo
+echo "Linking complete."
+echo "You can visit https://github.com/$1 to verify."
